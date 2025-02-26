@@ -14,3 +14,5 @@ CPMAddPackage(
     VERSION 8.0.6
     SOURCE_DIR ${LIB_DIR}/juce
 )
+
+add_subdirectory(plugin)
