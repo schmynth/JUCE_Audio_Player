@@ -12,6 +12,8 @@ This is a combination of the following sources of info:
 
 ## set up cpm
 
+CPM is kind of the "*C*Make *P*ackage *M*anager"
+
 Run the following in project root dir:
 
     mkdir -p cmake
@@ -48,6 +50,23 @@ To compile the project, invoke:
 
 where "--build" is an option for cmake and "build" is the directory, where CMake will put the object files and binaries.
 
-# launch
+# link, compile and launch with script
 
-The whole build and launch process is automated in buildAndLaunch.sh script, until a better way works.
+You can simply launch the script ```buildAndLaunch.sh``` in order to link and compile the Plugin and launch the plugin host. If you want to recreate all the build files you can launch it with the option like this:
+
+    ./buildAndLaunch.sh --remove-build
+
+
+# add modules (f.e. juce_dsp)
+
+To add juce modules, do not use `juce_add_module()`. Instead, add the module (juce_dsp) to `target_link_libraries()` in `CMakeLists.txt` (plugin) like so:
+
+    target_link_libraries(${PROJECT_NAME}
+        PRIVATE
+            juce::juce_audio_utils
+            juce::juce_dsp
+        PUBLIC
+            juce::juce_recommended_config_flags
+            juce::juce_recommended_lto_flags
+            juce::juce_recommended_warning_flags
+    )
