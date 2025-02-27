@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(AudioPluginTemplate)
+project(AudioPlugin)
 
 set(CMAKE_CXX_STANDARD 23)
 
@@ -15,4 +15,4 @@ CPMAddPackage(
     SOURCE_DIR ${LIB_DIR}/juce
 )
 
-add_subdirectory(plugin)
+add_subdirectory(plugin) # without this the plugin folder and its CMakeLists.txt will not be considered
