@@ -47,3 +47,7 @@ To compile the project, invoke:
     cmake --build build
 
 where "--build" is an option for cmake and "build" is the directory, where CMake will put the object files and binaries.
+
+# launch
+
+The whole build and launch process is automated in buildAndLaunch.sh script, until a better way works.
