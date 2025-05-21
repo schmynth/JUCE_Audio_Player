@@ -15,9 +15,13 @@ cmake --build build
 # build juce Audio Plugin Host:
 echo "make sure Audio Plugin Host is built..."
 cd libs/juce
-cmake -B build
-cmake -B build -DJUCE_BUILD_EXTRAS=ON
-cmake --build build --target AudioPluginHost
+if [[ ! -d "build" ]]; then
+  cmake -B build
+  cmake -B build -DJUCE_BUILD_EXTRAS=ON
+  cmake --build build --target AudioPluginHost
+else
+  echo "Audio Plugin Host already built"
+fi
 
 # launch Audio Plugin Host:
 echo "launching Audio Plugin Host..."

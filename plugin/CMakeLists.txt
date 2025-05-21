@@ -11,7 +11,7 @@ juce_add_plugin(${PROJECT_NAME}
     NEEDS_MIDI_OUTPUT FALSE
     PLUGIN_MANUFACTURER_CODE SMTH # four characters you want
     PLUGIN_CODE AUPL # what you want
-    PRODUCT_NAME "PluginName"
+    PRODUCT_NAME "AudioPlugin"
 )
 
 target_sources(${PROJECT_NAME}
