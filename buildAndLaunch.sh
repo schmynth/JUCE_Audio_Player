@@ -1,5 +1,7 @@
 #!/bin/bash
 
+scrDir=$(pwd)
+
 if [ $1 = "--remove-build" ]; then
 	rm -rf build/
 	echo "removed build directory"
@@ -23,6 +25,8 @@ else
   echo "Audio Plugin Host already built"
 fi
 
+echo "copying plugin to ~/.vst3 ..."
+cp -r ${scrDir}/build/plugin/AudioPlugin_artefacts/VST3/AudioPlugin.vst3 ~/.vst3
 # launch Audio Plugin Host:
 echo "launching Audio Plugin Host..."
 ./build/extras/AudioPluginHost/AudioPluginHost_artefacts/AudioPluginHost

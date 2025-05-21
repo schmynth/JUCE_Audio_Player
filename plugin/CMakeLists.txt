@@ -4,7 +4,7 @@ project(AudioPlugin VERSION 0.1.0)
 
 
 juce_add_plugin(${PROJECT_NAME}
-    COMPANY_NAME schmynth_audio
+    COMPANY_NAME schmynth_audio1
     IS_SYNTH FALSE
     FORMATS VST3
     NEEDS_MIDI_INPUT FALSE
