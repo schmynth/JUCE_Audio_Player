@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(AudioPlugin VERSION 0.1.0)
+project(AudioPlayer VERSION 0.1.0)
 
 
 juce_add_plugin(${PROJECT_NAME}
@@ -10,8 +10,8 @@ juce_add_plugin(${PROJECT_NAME}
     NEEDS_MIDI_INPUT FALSE
     NEEDS_MIDI_OUTPUT FALSE
     PLUGIN_MANUFACTURER_CODE SMTH # four characters you want
-    PLUGIN_CODE AUPL # what you want
-    PRODUCT_NAME "AudioPlugin"
+    PLUGIN_CODE PLAY # what you want
+    PRODUCT_NAME "AudioPlayer"
 )
 
 target_sources(${PROJECT_NAME}
@@ -28,7 +28,10 @@ target_include_directories(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
         juce::juce_audio_utils
-        juce::audio_formats
+        juce::juce_audio_basics
+        juce::juce_audio_formats
+        juce::juce_audio_processors
+        juce::juce_gui_basics
         juce::juce_dsp
     PUBLIC
         juce::juce_recommended_config_flags
@@ -41,4 +44,5 @@ target_compile_definitions(${PROJECT_NAME}
         JUCE_WEB_BROWSER=0
         JUCE_USE_CURL=0
         JUCE_VST3_CAN_REPLACE_VST2=0
+        JUCE_MODAL_LOOPS_PERMITTED=1
 )

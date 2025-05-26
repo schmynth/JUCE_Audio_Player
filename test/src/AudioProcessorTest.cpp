@@ -2,8 +2,8 @@
 #include <PluginProcessor.h>
 
 namespace audio_plugin_test {
-    TEST(AudioPluginAudioProcessor, Foo) {
-        AudioPluginAudioProcessor processor{};
+    TEST(AudioPlayerPluginProcessor, Foo) {
+        AudioPlayerPluginProcessor processor{};
         ASSERT_FALSE(true);
     }
 }
