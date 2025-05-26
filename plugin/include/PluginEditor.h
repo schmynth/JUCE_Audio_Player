@@ -20,6 +20,9 @@ public:
     };
 
 private:
+    juce::AudioFormatManager formatManager;
+    std::unique_ptr<juce::AudioFormatReaderSource> readerSource;
+    juce::AudioTransportSource transportSource;
     TransportState state;
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
