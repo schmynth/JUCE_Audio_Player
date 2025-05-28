@@ -8,14 +8,17 @@ AudioPlayerPluginProcessorEditor::AudioPlayerPluginProcessorEditor (AudioPlayerP
     addAndMakeVisible (openButton);
     openButton.setButtonText ("Open...");
     openButton.onClick = [&] {
-        chooser = std::make_unique<juce::FileChooser>("Select an audio file...", juce::File{}, "*.wav;*.mp3");
+        juce::File initialDir = juce::File::getSpecialLocation(juce::File::userHomeDirectory);
+        chooser = std::make_unique<juce::FileChooser>("Select an audio file...", initialDir, "*.wav;*.mp3");
         chooser->launchAsync(juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectFiles, [this](const juce::FileChooser& fc)
         {
             juce::File file = fc.getResult();
             if (file.existsAsFile())
+            {
                 processorRef.loadFile(file);
                 thumbnail.clear();
                 thumbnail.setSource(new juce::FileInputSource(file));
+            }
         });
     };
     addAndMakeVisible(playButton);
@@ -32,12 +35,21 @@ AudioPlayerPluginProcessorEditor::AudioPlayerPluginProcessorEditor (AudioPlayerP
     formatManager.registerBasicFormats();
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
+
+    processorRef.onFileLoaded = [this](const juce::File& file)
+    {
+        std::cout << "trying to set thumbnail.." << std::endl;
+        thumbnail.setSource(new juce::FileInputSource(file));
+    };
+
+
     setSize (400, 300);
     startTimerHz(30);
 }
 
 AudioPlayerPluginProcessorEditor::~AudioPlayerPluginProcessorEditor()
 {
+    std::cout << "Editor destroyed." << std::endl;
 }
 
 //==============================================================================

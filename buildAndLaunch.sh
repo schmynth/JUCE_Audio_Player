@@ -32,6 +32,6 @@ cp -r ${scrDir}/build/plugin/AudioPlayer_artefacts/VST3/${ProjectName}.vst3 ~/.v
 
 # launch Audio Plugin Host:
 echo "launching Audio Plugin Host..."
-./build/extras/AudioPluginHost/AudioPluginHost_artefacts/AudioPluginHost
+./build/extras/AudioPluginHost/AudioPluginHost_artefacts/AudioPluginHost > output.log 2>&1
 
 

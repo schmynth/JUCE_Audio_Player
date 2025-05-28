@@ -54,8 +54,12 @@ public:
     juce::AudioTransportSource transportSource;
     juce::AudioFormatManager formatManager;
     std::unique_ptr<juce::AudioFormatReaderSource> readerSource;
+    std::function<void(const juce::File&)> onFileLoaded;
+    juce::File lastLoadedFile;
 
 private:
+    juce::AudioProcessorValueTreeState apvts;
+    static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioPlayerPluginProcessor)
 };

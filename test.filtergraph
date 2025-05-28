@@ -61,13 +61,29 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <FILTER uid="6" x="0.2431192660550459" y="0.2977528089887641" useARA="0"
-          uiLastX_Normal="2064" uiLastY_Normal="186" uiopen_Normal="0">
+  <FILTER uid="6" x="0.4403669724770642" y="0.303370786516854" useARA="0"
+          uiLastX_Normal="3270" uiLastY_Normal="256" uiopen_Normal="0">
     <PLUGIN name="AudioPlayer" format="VST3" category="Fx" manufacturer="schmynth_audio"
             version="0.1.0" file="/home/sebastian/.vst3/AudioPlayer.vst3/Contents/x86_64-linux/AudioPlayer.so"
-            uniqueId="b511879b" isInstrument="0" fileTime="1970cafdf30" infoUpdateTime="1970cb15ffb"
+            uniqueId="b511879b" isInstrument="0" fileTime="19716ac96b8" infoUpdateTime="19716acd01b"
             numInputs="2" numOutputs="2" isShell="0" hasARAExtension="0"
             uid="cb6bee78"/>
+    <STATE>348.VMjLgLU....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DyM23hUMoFSmYmQt3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPUjZTEDLTEEUUoFUSEDZY81cVkETEYzXtASZHUmYwD1bUEyR4UEaXcVSGM1aEwVX0oldUUWUGElZzDSR5MVUXQWTGUUcIQUVLsVLZs1ZvDFLzf2XmkUaHU2LC4hKt3hKt3hKt3hKlIUUMQUTPkzUZESQFM1ZQQEV5UjQtDDQlAEMAcEV40zQtDDQ14hK5EjKt3hKt3hKt3hRUACTEEzZh8VVWgkdUYTTmE0UXwyKIMzasA2atUlaz4COuX0TTMCTrU2Yo41TzEFck4C.</STATE>
+    <LAYOUT>
+      <INPUTS>
+        <BUS index="0" layout="L R"/>
+      </INPUTS>
+      <OUTPUTS>
+        <BUS index="0" layout="L R"/>
+      </OUTPUTS>
+    </LAYOUT>
+  </FILTER>
+  <FILTER uid="8" x="0.4487767584097859" y="0.5842696629213483" useARA="0">
+    <PLUGIN name="MultiFX" format="VST3" category="Fx" manufacturer="schmynth_audio"
+            version="0.1.0" file="/home/sebastian/.vst3/MultiFX.vst3/Contents/x86_64-linux/MultiFX.so"
+            uniqueId="b2118c9a" isInstrument="0" fileTime="19715e72ba8" infoUpdateTime="19716acd01b"
+            numInputs="2" numOutputs="2" isShell="0" hasARAExtension="0"
+            uid="cb6a91f5"/>
     <STATE>191.VMjLgXK....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9XCLt3hKt3hKt3hKt3hYRUUSTEETIckVwTjQisVTTgkdEYjKAQjYPQSPWgUdMcjKAQjct3hdA4hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEV77RRC8Vav8lak4Fc9vyKVMEUy.Ea0cVZtMEcgQWY9..</STATE>
     <LAYOUT>
       <INPUTS>
@@ -78,6 +94,25 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <CONNECTION srcFilter="6" srcChannel="0" dstFilter="3" dstChannel="0"/>
-  <CONNECTION srcFilter="6" srcChannel="1" dstFilter="3" dstChannel="1"/>
+  <FILTER uid="9" x="0.2324159021406728" y="0.447565543071161" useARA="0"
+          uiLastX_Normal="2227" uiLastY_Normal="79" uiopen_Normal="0">
+    <PLUGIN name="AudioPlayer" format="VST3" category="Fx" manufacturer="schmynth_audio"
+            version="0.1.0" file="/home/sebastian/.vst3/AudioPlayer.vst3/Contents/x86_64-linux/AudioPlayer.so"
+            uniqueId="b511879b" isInstrument="0" fileTime="19716ac96b8" infoUpdateTime="19716acd01b"
+            numInputs="2" numOutputs="2" isShell="0" hasARAExtension="0"
+            uid="cb6bee78"/>
+    <STATE>348.VMjLgLU....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DyM23hUMoFSmYmQt3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPUjZTEDLTEEUUoFUSEDZY81cVkETEYzXtASZHUmYwD1bUEyR4UEaXcVSGM1aEwVX0oldUUWUGElZzDSR5MVUXQWTGUUcIQUVLsVLZs1ZvDFLzf2XmkUaHU2LC4hKt3hKt3hKt3hKlIUUMQUTPkzUZESQFM1ZQQEV5UjQtDDQlAEMAcEV40zQtDDQ14hK5EjKt3hKt3hKt3hRUACTEEzZh8VVWgkdUYTTmE0UXwyKIMzasA2atUlaz4COuX0TTMCTrU2Yo41TzEFck4C.</STATE>
+    <LAYOUT>
+      <INPUTS>
+        <BUS index="0" layout="L R"/>
+      </INPUTS>
+      <OUTPUTS>
+        <BUS index="0" layout="L R"/>
+      </OUTPUTS>
+    </LAYOUT>
+  </FILTER>
+  <CONNECTION srcFilter="6" srcChannel="0" dstFilter="8" dstChannel="0"/>
+  <CONNECTION srcFilter="6" srcChannel="1" dstFilter="8" dstChannel="1"/>
+  <CONNECTION srcFilter="8" srcChannel="0" dstFilter="3" dstChannel="0"/>
+  <CONNECTION srcFilter="8" srcChannel="1" dstFilter="3" dstChannel="1"/>
 </FILTERGRAPH>

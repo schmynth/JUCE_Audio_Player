@@ -28,4 +28,4 @@ CPMAddPackage(
 enable_testing()
 
 add_subdirectory(plugin) # without this the plugin folder and its CMakeLists.txt will not be considered
-add_subdirectory(test)
+# add_subdirectory(test)

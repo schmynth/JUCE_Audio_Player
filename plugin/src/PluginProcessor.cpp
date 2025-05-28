@@ -10,7 +10,8 @@ AudioPlayerPluginProcessor::AudioPlayerPluginProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
+                       apvts(*this, nullptr, "PARAMETERS", createParameterLayout())
 {
     formatManager.registerBasicFormats();
 }
@@ -20,6 +21,15 @@ AudioPlayerPluginProcessor::~AudioPlayerPluginProcessor()
 }
 
 //==============================================================================
+
+juce::AudioProcessorValueTreeState::ParameterLayout AudioPlayerPluginProcessor::createParameterLayout()
+{
+    juce::AudioProcessorValueTreeState::ParameterLayout apvts;
+    std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
+    return apvts;
+
+}
+
 const juce::String AudioPlayerPluginProcessor::getName() const
 {
     return "JucePlugin_Name";
@@ -166,6 +176,7 @@ bool AudioPlayerPluginProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* AudioPlayerPluginProcessor::createEditor()
 {
+    std::cout << "Editor created." << std::endl;
     return new AudioPlayerPluginProcessorEditor (*this);
 }
 
@@ -175,13 +186,47 @@ void AudioPlayerPluginProcessor::getStateInformation (juce::MemoryBlock& destDat
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
+    auto state = apvts.copyState();
+    std::unique_ptr<juce::XmlElement> xml (state.createXml());
+    copyXmlToBinary(*xml, destData);
     juce::ignoreUnused (destData);
+    std::cout << "getStateInformation triggered." << std::endl;
 }
 
 void AudioPlayerPluginProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+
+    std::cout << "setStateInformation triggered." << std::endl;
+    std::unique_ptr<juce::XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    if (xmlState.get() != nullptr) 
+    {
+        if (xmlState->hasTagName (apvts.state.getType()))
+        {
+            apvts.replaceState (juce::ValueTree::fromXml (*xmlState));
+            auto path = apvts.state["filePath"].toString();
+            juce::File file(path);
+            if (file.existsAsFile())
+            {
+                loadFile(file);
+                std::cout << "file successfully loaded: " << path << std::endl;
+            }
+            else
+                std::cout << "file does not exist." << std::endl;
+        }
+        else
+        {
+            std::cout << "xmlState->hasTagName (apvts.state.getType()) is false." << std::endl;
+        }
+    }
+    else
+    {
+
+        std::cout << "xmlState.get() is nullptr." << std::endl;
+    }
+    
+
     juce::ignoreUnused (data, sizeInBytes);
 }
 
@@ -202,6 +247,14 @@ void AudioPlayerPluginProcessor::loadFile (const juce::File& file)
         transportSource.setSource(newSource.get(), 0, nullptr, reader->sampleRate);
         readerSource = std::move(newSource);
     }
+    lastLoadedFile = file;
+
+    apvts.state.setProperty("filePath", file.getFullPathName(), nullptr);
+    std::cout << "apvts.state['filePath'] is: " << std::endl;
+    juce::String jucePath = apvts.state["filePath"].toString();
+    std::cout << jucePath << std::endl;
+    if (onFileLoaded)
+        onFileLoaded(file);
 }
 
 void AudioPlayerPluginProcessor::start() 
