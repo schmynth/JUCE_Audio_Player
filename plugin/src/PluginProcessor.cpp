@@ -211,6 +211,7 @@ void AudioPlayerPluginProcessor::setStateInformation (const void* data, int size
             {
                 loadFile(file);
                 std::cout << "file successfully loaded: " << path << std::endl;
+                fileWasRestoredFromState = true;
             }
             else
                 std::cout << "file does not exist." << std::endl;

@@ -56,6 +56,7 @@ public:
     std::unique_ptr<juce::AudioFormatReaderSource> readerSource;
     std::function<void(const juce::File&)> onFileLoaded;
     juce::File lastLoadedFile;
+    bool fileWasRestoredFromState = false;
 
 private:
     juce::AudioProcessorValueTreeState apvts;

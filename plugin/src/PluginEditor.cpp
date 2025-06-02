@@ -42,7 +42,14 @@ AudioPlayerPluginProcessorEditor::AudioPlayerPluginProcessorEditor (AudioPlayerP
         thumbnail.setSource(new juce::FileInputSource(file));
     };
 
-
+    if (processorRef.fileWasRestoredFromState)
+    {
+        juce::MessageManager::callAsync([this]()
+        {
+            if (processorRef.lastLoadedFile.existsAsFile() && processorRef.onFileLoaded)
+                processorRef.onFileLoaded(processorRef.lastLoadedFile);
+        });
+    }
     setSize (400, 300);
     startTimerHz(30);
 }
