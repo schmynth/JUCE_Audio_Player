@@ -1,0 +1,29 @@
+./buildAndLaunch.sh: Zeile 6: [: =: Einstelliger (unärer) Operator erwartet.
+configuring project with CMake...
+-- CPM: Adding package JUCE@8.0.6 (8.0.6)
+-- Configuring juceaide
+-- Building juceaide
+-- Exporting juceaide
+-- Testing juceaide
+-- Finished setting up juceaide
+-- CPM: Adding package GOOGLETEST@1.16.0 (v1.16.0)
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/sebastian/Entwicklung/Software/JUCE/JUCE_Audio_Player/build
+building project...
+[  5%] Built target gtest
+[ 10%] Built target gmock
+[ 15%] Built target gmock_main
+[ 20%] Built target gtest_main
+[ 23%] Building CXX object plugin/CMakeFiles/AudioPlayer.dir/src/PluginProcessor.cpp.o
+[ 25%] Linking CXX static library AudioPlayer_artefacts/libAudioPlayer_SharedCode.a
+[ 71%] Built target AudioPlayer
+[ 76%] Built target juce_vst3_helper
+[ 79%] Linking CXX shared module AudioPlayer_artefacts/VST3/AudioPlayer.vst3/Contents/x86_64-linux/AudioPlayer.so
+removing moduleinfo.json
+creating /home/sebastian/Entwicklung/Software/JUCE/JUCE_Audio_Player/build/plugin/AudioPlayer_artefacts//VST3/AudioPlayer.vst3/Contents/Resources/moduleinfo.json
+[100%] Built target AudioPlayer_VST3
+make sure Audio Plugin Host is built...
+Audio Plugin Host already built
+copying plugin to ~/.vst3 ...
+launching Audio Plugin Host...
